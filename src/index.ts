@@ -52,7 +52,9 @@ program
                 
                 try {
                     const downloader = new Downloader(parseInt(options.concurrency));
-                    await downloader.downloadArtifacts(artifacts, resolvedOutputDir);
+                    await downloader.downloadArtifacts(artifacts, resolvedOutputDir, (completed, total) => {
+                        downloadSpinner.text = `Downloading... (${completed}/${total})`;
+                    });
                     downloadSpinner.succeed('Download complete.');
                 } catch (downloadError: any) {
                     downloadSpinner.fail(`Download failed: ${downloadError.message}`);
@@ -216,7 +218,9 @@ program
             const downloadSpinner = ora(`Downloading to ${targetOutputDir} with concurrency ${options.concurrency}...`).start();
             try {
                 const downloader = new Downloader(parseInt(options.concurrency));
-                await downloader.downloadArtifacts(artifacts, targetOutputDir);
+                await downloader.downloadArtifacts(artifacts, targetOutputDir, (completed, total) => {
+                    downloadSpinner.text = `Downloading... (${completed}/${total})`;
+                });
                 downloadSpinner.succeed('Download complete.');
             } catch (downloadError: any) {
                 downloadSpinner.fail(`Download failed: ${downloadError.message}`);

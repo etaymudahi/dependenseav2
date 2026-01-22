@@ -11,13 +11,26 @@ export class Downloader {
         this.limit = pLimit(concurrency);
     }
 
-    public async downloadArtifacts(artifacts: DependencyArtifact[], outputDir: string): Promise<void> {
+    public async downloadArtifacts(
+        artifacts: DependencyArtifact[], 
+        outputDir: string,
+        onProgress?: (completed: number, total: number) => void
+    ): Promise<void> {
         if (!fs.existsSync(outputDir)) {
             await fs.promises.mkdir(outputDir, { recursive: true });
         }
 
+        let completed = 0;
+        const total = artifacts.length;
+
         const tasks = artifacts.map(artifact => {
-            return this.limit(() => this.downloadFile(artifact, outputDir));
+            return this.limit(async () => {
+                await this.downloadFile(artifact, outputDir);
+                completed++;
+                if (onProgress) {
+                    onProgress(completed, total);
+                }
+            });
         });
 
         await Promise.all(tasks);
