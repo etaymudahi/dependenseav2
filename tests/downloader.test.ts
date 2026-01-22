@@ -68,7 +68,7 @@ describe('Downloader', () => {
 
         await downloader.downloadArtifacts(artifacts, outputDir);
 
-        expect(fetchMock).toHaveBeenCalledWith('https://registry.npmjs.org/pkg-a/-/pkg-a-1.0.0.tgz');
+        expect(fetchMock).toHaveBeenCalledWith('https://registry.npmjs.org/pkg-a/-/pkg-a-1.0.0.tgz', { headers: {} }); // Updated to expect options object
         // Check fs.promises.mkdir call
         expect(fs.promises.mkdir).toHaveBeenCalledWith(outputDir, { recursive: true });
         // Check fs.promises.writeFile call
