@@ -1,0 +1,23 @@
+{
+  "name": "complex-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.7",
+    "axios": "^1.13.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  }
+}

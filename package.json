@@ -1,0 +1,62 @@
+{
+  "name": "dependenseav2",
+  "version": "1.0.0",
+  "description": "Recursively download NPM dependencies for air-gapped environments",
+  "main": "dist/index.js",
+  "bin": {
+    "depsea": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etaymudahi/dependenseav2.git"
+  },
+  "keywords": [
+    "npm",
+    "offline",
+    "air-gapped",
+    "download",
+    "recursive",
+    "dependencies"
+  ],
+  "author": "Eden Digital",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/etaymudahi/dependenseav2/issues"
+  },
+  "homepage": "https://github.com/etaymudahi/dependenseav2#readme",
+  "devDependencies": {
+    "@types/figlet": "^1.7.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/gradient-string": "^1.1.6",
+    "@types/node": "^25.0.9",
+    "@types/rc": "^1.2.4",
+    "@types/registry-auth-token": "^4.2.4",
+    "@types/ssri": "^7.1.5",
+    "fs-extra": "^11.3.3",
+    "nock": "^14.0.10",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.17"
+  },
+  "dependencies": {
+    "commander": "^14.0.2",
+    "figlet": "^1.9.4",
+    "gradient-string": "^3.0.0",
+    "is-odd": "^3.0.1",
+    "ora": "^9.1.0",
+    "p-limit": "^7.2.0",
+    "rc": "^1.2.8",
+    "registry-auth-token": "^5.1.1",
+    "registry-url": "^7.2.0",
+    "ssri": "^13.0.0"
+  }
+}
