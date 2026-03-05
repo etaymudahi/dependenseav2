@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "commander": "^14.0.2",
+    "dependenseav2": "file:dependenseav2-1.0.0.tgz",
     "figlet": "^1.9.4",
     "gradient-string": "^3.0.0",
     "is-odd": "^3.0.1",
